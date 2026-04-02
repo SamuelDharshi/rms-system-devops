@@ -1,0 +1,34 @@
+# --- Java / Maven ---
+# Ignore all compiled output
+**/target/
+**/*.class
+# Ignore Maven wrapper files
+.mvn/
+mvnw
+mvnw.cmd
+
+# --- Frontend (Next.js/React) ---
+# Ignore dependencies and build output
+**/node_modules/
+**/.next/
+**/out/
+**/build/
+# Ignore environment secrets
+.env*.local
+.env
+
+# --- IDEs & Editors ---
+# Ignore VS Code settings
+.vscode/
+# Ignore IntelliJ files
+.idea/
+*.iml
+# Ignore Eclipse files
+.project
+.classpath
+.settings/
+
+# --- System Files ---
+# Ignore thumbnails and OS specific files
+Thumbs.db
+.DS_Store
