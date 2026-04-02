@@ -1,0 +1,162 @@
+/* frontend/app/globals.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Mono', monospace;
+    background: #f7f6f2;
+    color: #1c1c1c;
+  }
+
+  * { box-sizing: border-box; }
+}
+
+@layer components {
+
+  /* ── Blinking cursor ── */
+  .cursor {
+    color: #e5e400;
+    animation: blink 1s step-end infinite;
+  }
+
+  /* ── Buttons ── */
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2
+           bg-rms-black text-rms-cream
+           font-mono text-xs tracking-widest uppercase
+           px-4 py-2.5 border border-rms-black
+           transition-all duration-100
+           hover:bg-rms-dark
+           disabled:opacity-40 disabled:cursor-not-allowed
+           focus:outline-none focus:ring-1 focus:ring-rms-yellow;
+  }
+
+  .btn-yellow {
+    @apply inline-flex items-center justify-center gap-2
+           bg-rms-yellow text-rms-black
+           font-mono text-xs tracking-widest uppercase font-medium
+           px-4 py-2.5 border border-rms-yellow
+           transition-all duration-100
+           hover:bg-yellow-300
+           disabled:opacity-40 disabled:cursor-not-allowed
+           focus:outline-none focus:ring-1 focus:ring-rms-black;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2
+           bg-transparent text-rms-subtle
+           font-mono text-xs tracking-widest uppercase
+           px-4 py-2.5 border border-rms-border
+           transition-all duration-100
+           hover:border-rms-black hover:text-rms-black
+           focus:outline-none focus:ring-1 focus:ring-rms-black;
+  }
+
+  .btn-danger {
+    @apply inline-flex items-center justify-center gap-2
+           bg-red-600 text-white
+           font-mono text-xs tracking-widest uppercase
+           px-4 py-2.5 border border-red-600
+           transition-all duration-100
+           hover:bg-red-700
+           focus:outline-none focus:ring-1 focus:ring-red-400;
+  }
+
+  /* ── Form inputs ── */
+  .input {
+    @apply w-full bg-white border border-rms-border
+           px-3 py-2.5 text-xs font-mono text-rms-black
+           tracking-wide
+           placeholder:text-rms-faint
+           focus:outline-none focus:border-rms-black focus:ring-1 focus:ring-rms-black
+           transition duration-100
+           disabled:bg-rms-cream disabled:text-rms-muted;
+  }
+
+  .input-dark {
+    @apply w-full bg-rms-dark border border-[#444]
+           px-3 py-2.5 text-xs font-mono text-rms-cream
+           tracking-wide
+           placeholder:text-rms-faint
+           focus:outline-none focus:border-rms-yellow
+           transition duration-100;
+  }
+
+  .label {
+    @apply block text-xs font-mono tracking-widest uppercase
+           text-rms-muted mb-1.5;
+  }
+
+  /* ── Cards ── */
+  .card {
+    @apply bg-white border border-rms-border
+           transition-colors duration-100
+           hover:border-rms-black;
+  }
+
+  .card-featured {
+    @apply card border-l-2 border-l-rms-yellow;
+  }
+
+  /* ── Badges ── */
+  .badge {
+    @apply inline-flex items-center font-mono text-[9px]
+           tracking-widest uppercase px-2 py-0.5;
+  }
+  .badge-open     { @apply badge bg-emerald-50 border border-emerald-300 text-emerald-800; }
+  .badge-closed   { @apply badge bg-gray-100 border border-rms-border text-rms-muted; }
+  .badge-pending  { @apply badge bg-amber-50 border border-amber-300 text-amber-800; }
+  .badge-selected { @apply badge bg-emerald-50 border border-emerald-300 text-emerald-800; }
+  .badge-rejected { @apply badge bg-red-50 border border-red-300 text-red-800; }
+  .badge-skill    { @apply badge bg-rms-cream border border-rms-border text-rms-subtle; }
+
+  /* ── Section label ── */
+  .section-label {
+    @apply text-[9px] font-mono tracking-[0.3em] uppercase
+           text-rms-faint pb-1.5 border-b border-rms-border mb-3;
+  }
+
+  /* ── Sidebar nav ── */
+  .sidebar-item {
+    @apply flex items-center gap-2.5 px-3.5 py-2.5
+           text-xs font-mono tracking-wide text-rms-faint
+           cursor-pointer transition-colors duration-100
+           hover:bg-rms-dark hover:text-rms-cream;
+  }
+  .sidebar-item-active {
+    @apply sidebar-item bg-rms-dark text-rms-yellow
+           border-l-2 border-rms-yellow;
+  }
+
+  /* ── Page wrapper ── */
+  .page-container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  /* ── Terminal block ── */
+  .terminal {
+    @apply bg-rms-black p-4 font-mono;
+  }
+  .terminal-row {
+    @apply text-[10px] text-rms-faint mb-1 leading-relaxed;
+  }
+  .terminal-row .val {
+    @apply text-rms-yellow;
+  }
+  .terminal-row .ok {
+    @apply text-green-400;
+  }
+  .terminal-row .err {
+    @apply text-red-400;
+  }
+}
+
+/* ── Animations ── */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}

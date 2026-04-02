@@ -2,6 +2,7 @@
 # Ignore all compiled output
 **/target/
 **/*.class
+
 # Ignore Maven wrapper files
 .mvn/
 mvnw

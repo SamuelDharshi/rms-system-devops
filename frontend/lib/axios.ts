@@ -11,6 +11,22 @@ const api = axios.create({
   headers: { 'Content-Type': 'application/json' },
 });
 
+// Auto-append ?applicantId= or ?recruiterId= on every request
+api.interceptors.request.use((config) => {
+  if (typeof window !== 'undefined') {
+    const raw = localStorage.getItem('rms_user');
+    if (raw) {
+      try {
+        const user = JSON.parse(raw);
+        config.params = config.params ?? {};
+        if (user.role === 'applicant') config.params.applicantId = user.id;
+        if (user.role === 'recruiter') config.params.recruiterId = user.id;
+      } catch {}
+    }
+  }
+  return config;
+});
+
 // Response interceptor — show errors clearly, no auto-redirect
 api.interceptors.response.use(
   (response) => response,
