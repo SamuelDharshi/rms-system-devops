@@ -6,7 +6,7 @@
 trigger:
 - main
 
-pool: Agent-Pool-Trial
+pool: Default
 
 steps:
 - task: Maven@3
